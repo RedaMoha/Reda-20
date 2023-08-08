@@ -1,0 +1,10 @@
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+redamohamed@pop-os:~$ pwd
+/home/redamohamed
+redamohamed@pop-os:~$ mkdir "Reda Mohamed"
+redamohamed@pop-os:~$ cd "Reda Mohamed"
+redamohamed@pop-os:~/Reda Mohamed$ pwd
+/home/redamohamed/Reda Mohamed
+redamohamed@pop-os:~/Reda Mohamed$ 
