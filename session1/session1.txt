@@ -1,0 +1,83 @@
+reda@reda-VirtualBox:~$ pwd
+/home/reda
+reda@reda-VirtualBox:~$ mkdir Reda\ Mohamed
+reda@reda-VirtualBox:~$ cd "Reda Mohamed"/
+reda@reda-VirtualBox:~/Reda Mohamed$ pwd
+/home/reda/Reda Mohamed
+reda@reda-VirtualBox:~/Reda Mohamed$ mkdir Documents
+reda@reda-VirtualBox:~/Reda Mohamed$ cd Documents
+reda@reda-VirtualBox:~/Reda Mohamed/Documents$ touch file1.txt file2.txt file3.txt
+reda@reda-VirtualBox:~/Reda Mohamed/Documents$ ls
+file1.txt  file2.txt  file3.txt
+reda@reda-VirtualBox:~/Reda Mohamed/Documents$ ls -l
+total 0
+-rw-rw-r-- 1 reda reda 0 أغس  9 10:35 file1.txt
+-rw-rw-r-- 1 reda reda 0 أغس  9 10:35 file2.txt
+-rw-rw-r-- 1 reda reda 0 أغس  9 10:35 file3.txt
+reda@reda-VirtualBox:~/Reda Mohamed/Documents$ cd ..
+reda@reda-VirtualBox:~/Reda Mohamed$ pwd
+/home/reda/Reda Mohamed
+reda@reda-VirtualBox:~/Reda Mohamed$ touch .hidden_file
+reda@reda-VirtualBox:~/Reda Mohamed$ ls
+Documents
+reda@reda-VirtualBox:~/Reda Mohamed$ ls -a
+.  ..  Documents  .hidden_file
+reda@reda-VirtualBox:~/Reda Mohamed$ ls -la
+total 12
+drwxrwxr-x  3 reda reda 4096 أغس  9 10:38 .
+drwxr-x--- 17 reda reda 4096 أغس  9 10:31 ..
+drwxrwxr-x  2 reda reda 4096 أغس  9 10:35 Documents
+-rw-rw-r--  1 reda reda    0 أغس  9 10:38 .hidden_file
+reda@reda-VirtualBox:~/Reda Mohamed$ ls -a
+.  ..  Documents  .hidden_file
+reda@reda-VirtualBox:~/Reda Mohamed$ nano Documents/file1.txt
+reda@reda-VirtualBox:~/Reda Mohamed$ cat Documents/file1.txt
+Hi Iam Reda Mohamed and iam learning linux  
+Really!! Iam happy
+reda@reda-VirtualBox:~/Reda Mohamed$ cd Documents
+reda@reda-VirtualBox:~/Reda Mohamed/Documents$ mkdir \-
+reda@reda-VirtualBox:~/Reda Mohamed/Documents$ cd -
+/home/reda/Reda Mohamed
+reda@reda-VirtualBox:~/Reda Mohamed$ cp -r Documents "My_Document"
+reda@reda-VirtualBox:~/Reda Mohamed$ ls
+Documents  My_Document
+reda@reda-VirtualBox:~/Reda Mohamed$ ls My_Documents
+ls: cannot access 'My_Documents': No such file or directory
+reda@reda-VirtualBox:~/Reda Mohamed$ ls My_Document
+-  file1.txt  file2.txt  file3.txt
+reda@reda-VirtualBox:~/Reda Mohamed$ cat file1.txt
+cat: file1.txt: No such file or directory
+reda@reda-VirtualBox:~/Reda Mohamed$ cat My_Document/file1.txt
+Hi Iam Reda Mohamed and iam learning linux  
+Really!! Iam happy
+reda@reda-VirtualBox:~/Reda Mohamed$ cd -
+/home/reda/Reda Mohamed/Documents
+reda@reda-VirtualBox:~/Reda Mohamed/Documents$ cd \-
+/home/reda/Reda Mohamed
+reda@reda-VirtualBox:~/Reda Mohamed$ cat .hidden_file
+reda@reda-VirtualBox:~/Reda Mohamed$ mv Documents/file2.txt Documents/file3.txt /home/reda/Reda Mohamed
+mv: target 'Mohamed' is not a directory
+reda@reda-VirtualBox:~/Reda Mohamed$ mv Documents/file2.txt Documents/file3.txt /home/reda/Reda\ Mohamed
+reda@reda-VirtualBox:~/Reda Mohamed$ ls -a
+.  ..  Documents  file2.txt  file3.txt  .hidden_file  My_Document
+reda@reda-VirtualBox:~/Reda Mohamed$ cd Documents
+reda@reda-VirtualBox:~/Reda Mohamed/Documents$ cd \-
+/home/reda/Reda Mohamed
+reda@reda-VirtualBox:~/Reda Mohamed$ cd "-"
+/home/reda/Reda Mohamed/Documents
+reda@reda-VirtualBox:~/Reda Mohamed/Documents$ cd /home/reda/Reda\ Mohamed/Documents/\-
+reda@reda-VirtualBox:~/Reda Mohamed/Documents/-$ cd
+reda@reda-VirtualBox:~$ pwd
+/home/reda
+reda@reda-VirtualBox:~$ ls
+ Desktop   Documents   Downloads   Music   Pictures   Public  'Reda Mohamed'   snap   Templates   Videos
+reda@reda-VirtualBox:~$ cdrm -r "Reda Mohamed"
+Command 'cdrm' not found, did you mean:
+  command 'cdrom' from snap cdrom (digital-audio)
+  command 'crm' from deb crmsh (4.3.1-1ubuntu3)
+  command 'crm' from deb crm114 (20100106-10)
+See 'snap info <snapname>' for additional versions.
+reda@reda-VirtualBox:~$ cd ~
+reda@reda-VirtualBox:~$ rm -r "Reda Mohamed"
+reda@reda-VirtualBox:~$ ls
+Desktop  Documents  Downloads  Music  Pictures  Public  snap  Templates  Videos
