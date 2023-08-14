@@ -1,0 +1,69 @@
+reda@reda-VirtualBox:~$ cd Downloads/
+reda@reda-VirtualBox:~/Downloads$ ls
+discord-0.0.28.deb  forma.jpeg  google-chrome-stable_current_amd64.deb  Reda.jpg  step.6png  Updated-Task-02.zip
+reda@reda-VirtualBox:~/Downloads$ unzip Updated-Task-02.zip 
+Archive:  Updated-Task-02.zip
+   creating: Updated-Task-02/
+  inflating: Updated-Task-02/README.txt  
+  inflating: Updated-Task-02/.level-1.tar  
+reda@reda-VirtualBox:~/Downloads$ ls
+discord-0.0.28.deb  forma.jpeg  google-chrome-stable_current_amd64.deb  Reda.jpg  step.6png  Updated-Task-02  Updated-Task-02.zip
+reda@reda-VirtualBox:~/Downloads$ cd Updated-Task-02/
+reda@reda-VirtualBox:~/Downloads/Updated-Task-02$ ls
+README.txt
+reda@reda-VirtualBox:~/Downloads/Updated-Task-02$ cat README.txt 
+Locate what you can't see.
+Find out what to do with it.
+reda@reda-VirtualBox:~/Downloads/Updated-Task-02$ ls -a
+.  ..  .level-1.tar  README.txt
+reda@reda-VirtualBox:~/Downloads/Updated-Task-02$ tar -xvf .level-1.tar 
+.level-1/
+.level-1/README.txt
+.level-1/level-2
+reda@reda-VirtualBox:~/Downloads/Updated-Task-02$ ls
+README.txt
+reda@reda-VirtualBox:~/Downloads/Updated-Task-02$ ls -a
+.  ..  .level-1  .level-1.tar  README.txt
+reda@reda-VirtualBox:~/Downloads/Updated-Task-02$ cd .level-1/
+reda@reda-VirtualBox:~/Downloads/Updated-Task-02/.level-1$ ls
+level-2  README.txt
+reda@reda-VirtualBox:~/Downloads/Updated-Task-02/.level-1$ cat README.txt 
+Decompress "level-2".
+Hint: Most compression tools require it's suffix.
+reda@reda-VirtualBox:~/Downloads/Updated-Task-02/.level-1$ file level-2 
+level-2: gzip compressed data, was "level-2.tar", last modified: Wed Aug  9 17:59:07 2023, from Unix, original size modulo 2^32 112640
+reda@reda-VirtualBox:~/Downloads/Updated-Task-02/.level-1$ tar -xvzf level-2
+reda@reda-VirtualBox:~/Downloads/Updated-Task-02/.level-1$ ls 
+level-2  README.txt
+reda@reda-VirtualBox:~/Downloads/Updated-Task-02/.level-1$ cd level-2/
+reda@reda-VirtualBox:~/Downloads/Updated-Task-02/.level-1/level-2$ ls
+01VzXCtEZS  4CkUBprXze  8HuZDGUf7D  b8L3KxPJL3  cYLRnO8xIB  EDPOSQuyWk  fSikeo7Jtz  HC3gnSrNHL  jzjKDCAuJh  lvEy6vrtZe  NB8PtjcBPu  PBQjGeeXZ2  rjS1PORSqI  TynxkdcmfZ  v9kNm4bENt  WxGYCzojb5  yWY8iLmL2v
+09tuxAUkSZ  4OAvfgFenY  8lNsncDmgT  bc83b2Byu2  D240Im7S6f  EJd4UALueA  fTBdzWqgkc  HDe7NHRINO  k0KGHDEFmp  LXdwN4DGye  NuvecJk6rH  PDsc45eDhU  rn4s52kOCO  u8APo7fuFv  VkL2bz9W98  WzkBDyZf09  Yx2PUbl2gA
+0MaqBh51eE  4Qm9FLdd1E  a8wKwwWNRJ  BeSbKu0Ogb  dcWFp0gN0U  emEeo94yqd  FUSxQX2TeD  HRHgAeIQKP  KNXMn8sBL8  lxQpP8fJrM  nV9Fht2ABW  po63smRLBt  rnTFX18Jh9  uCBBCPnmb2  vm5P2xLF3s  x2OxGPBNwZ  ZDe6elrEn5
+1Rc48mLISP  4TqWZorrCe  ABtpOP8TR9  BsdD4ojJkc  dkbSpLYJE5  eRz0wDJzB6  g18DV62wEd  hsM9mQuMTH  KO4TANambB  mIQgRJXCLp  O0Jt20BDT8  pptcUXKeGS  rTAkta2aW2  uH7zN1UJSF  VMVoKBX4Qu  X7by8vw474  ZgiaL4uwSD
+1t7LeNZeIl  54is18fJ6D  AbyVd8kDq7  bvSabnQtuB  DQ3kjLgCUV  Etsj7NECd9  gB9k1O4ZT6  hynub0MKNl  kPIkdmGR9B  mLD2604WjZ  o1hEPIsnq0  pRQVevx1kv  rzz4HDYtQb  UkoXWlT8ck  vOcM3EYMXw  xiRKbhzAt6  ZhfPkBCn6B
+2dBiyDY1PQ  5CnJF4NcXe  aD09T4P1xb  ciyaIBrj64  dW436qn2Pa  eTY7qTsykD  gBT5u0vLT5  Ib1jBtgkP4  kr6RDEYCed  mMwQyrbtaZ  o5zluFzkcg  PVhcqo825N  s82TBxnZgd  UkXg7Lp9iV  VUOJouKqL9  Xnmws6DuHJ  zQ85ieoBzD
+2tqNyIRWZk  6jKgIUUWGx  afHUHOaYAb  clktsGviqW  DWahK49MnT  evJEy0ce9D  Gf0hDzawoe  iJfohlDIrt  kuDj7Ti4Id  Mn1k5s3x2R  oATDmz0CAK  Q6QURkVvYf  SkWLO4DmJj  Uo2uLQHfWm  VxWCuMyoCO  Y2WinDQzOb  zTpHflQtBt
+3aI6ZRWi7g  6LythIyWzQ  AKf6S1hWVZ  CoXO2qfhv8  dwmlaLoghH  f4sJ94QCRL  Gi0sWVVQmE  IXzIL2c9IA  kVQzoTdmBO  mTJFxGhibA  OBfROJ7kKU  QIGyaTtmlW  soPx5vMfvS  URJcbPH7ig  w9ophYtx44  y7U81AE7BP  ZwCSnEFDCS
+3HClX3dFMm  6QcByCct9B  AofrZBGKhB  cqxENw21F1  DYCdqY7wJN  F7HxYNlWa1  GqeOr84K6i  jbZwCGWF1u  L3QwW94Azo  n80qgsvhlQ  OEQ9RG7Cam  QirM8dLKSD  SpGacqvoQe  uUeLfbjNyx  waa5BUbYjL  yc0GFVKDtL  zXOU7yVyjx
+3nhuQzOgpI  7B5l8AC1M8  aT6OddrPAr  cTJdoZGT00  E0bi5j8X9V  feBbPjPHsA  gUm1Kw3MsJ  jGu9MApzJB  l6FQ8rGXcW  n8QxXKvUat  OlDXrxU8tn  Qv3QTzvZC1  Sv7z35zbDG  UUrQyToe6M  wfbzcLn49x  YH3RBGocdA
+40Mg6vDbYN  7dnQ0OZO7U  AVR4cOJJui  cUJtGyfwcE  EC1LKYOR0Z  FKtcWd8ViA  GuxvN3cJ7U  JiMEslX4PO  l8fShvYkRA  n9Gy45gDYd  OQUNDxbuAf  README.txt  T4TiKdPbRw  uYt23HMkvu  WU2NIZw5bL  ymuoaRLefH
+4bq72IzcAj  7f6nrbSyXM  AXkzOy8ZzP  cuL74htcTP  ECIShbzsBE  fky7p46DOi  H2TS1vp6Xt  JVucZ5s2sO  lcVizkoO1R  NABe6RrZS9  P9w2t9K9Ju  rHC2JXoQSc  tmDRcrdYa9  v2LInrvkDO  WWgF2QTu1U  yWegzIJdDb
+reda@reda-VirtualBox:~/Downloads/Updated-Task-02/.level-1/level-2$ find -name "*.txt"
+./README.txt
+reda@reda-VirtualBox:~/Downloads/Updated-Task-02/.level-1/level-2$ cat README.txt 
+Locate "level-3".
+Use a general method to decompress it.
+reda@reda-VirtualBox:~/Downloads/Updated-Task-02/.level-1/level-2$ find -name "level*"
+./gBT5u0vLT5/level-3
+reda@reda-VirtualBox:~/Downloads/Updated-Task-02/.level-1/level-2$ tar -xvf ./gBT5u0vLT5/level-3
+reda@reda-VirtualBox:~/Downloads/Updated-Task-02/.level-1/level-2/level-3$ cat README.txt 
+You're seeking a file with a certain size.
+Find the link to get the size.
+
+reda@reda-VirtualBox:~/Downloads/Updated-Task-02/.level-1/level-2/level-3$ cat X6lkChFKsj
+73 bytes is your target file size
+reda@reda-VirtualBox:~/Downloads/Updated-Task-02/.level-1/level-2/level-3$ find -size 73c
+./m7lRDpRTUJ/xVMvVOKNW5
+reda@reda-VirtualBox:~/Downloads/Updated-Task-02/.level-1/level-2/level-3$ cat ./m7lRDpRTUJ/xVMvVOKNW5
+Congrats!! You have finished the Task Successfully, you can rest now :D.
