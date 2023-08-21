@@ -1,0 +1,456 @@
+reda@reda-VirtualBox:~$ sudo useradd -m osc
+reda@reda-VirtualBox:~$ sudo passwd osc
+New password: 
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password: 
+passwd: password updated successfully
+reda@reda-VirtualBox:~$ sudo groupadd osc_group
+reda@reda-VirtualBox:~$ sudo usermad -aG osc_group osc
+sudo: usermad: command not found
+reda@reda-VirtualBox:~$ sudo usermod -aG osc_group osc
+reda@reda-VirtualBox:~$ sudo usermod -aG sudo osc
+reda@reda-VirtualBox:~$ sudo su osc
+$ sudo -s
+[sudo] password for osc: 
+# pwd
+/home/reda
+# su - osc
+$ pwd
+/home/osc
+$ sudo visudo
+[sudo] password for osc: 
+visudo: /etc/sudoers.tmp unchanged
+$ pwd
+/home/osc
+$ mkdir ~/permission_practice
+$ cd ~/permission_practice
+$ pwd
+/home/osc/permission_practice
+$ touch public_file.txt private_file.txt executable_script.sh
+$ ls -l
+total 0
+-rw-rw-r-- 1 osc osc 0 أغس 21 22:50 executable_script.sh
+-rw-rw-r-- 1 osc osc 0 أغس 21 22:50 private_file.txt
+-rw-rw-r-- 1 osc osc 0 أغس 21 22:50 public_file.txt
+$ chmod 666 public_file.txt         
+$ chmod 600 private_file.txt
+$ chmod 750 executable_script.sh
+$ ls -l
+total 0
+-rwxr-x--- 1 osc osc 0 أغس 21 22:50 executable_script.sh
+-rw------- 1 osc osc 0 أغس 21 22:50 private_file.txt
+-rw-rw-rw- 1 osc osc 0 أغس 21 22:50 public_file.txt
+$ pwd
+/home/osc/permission_practice
+$ chown Reda private_file.txt
+chown: invalid user: ‘Reda’
+$ chown /reda private_file.txt
+chown: invalid user: ‘/reda’
+$ chown /reda/home private_file.txt
+chown: invalid user: ‘/reda/home’
+$ chown reda private_file.txt
+chown: changing ownership of 'private_file.txt': Operation not permitted
+$ sudo chown reda private_file.txt
+[sudo] password for osc: 
+$ pwd
+/home/osc/permission_practice
+$ sudo chgrp osc_group private_file.txt
+$ ls -l
+total 0
+-rwxr-x--- 1 osc  osc       0 أغس 21 22:50 executable_script.sh
+-rw------- 1 reda osc_group 0 أغس 21 22:50 private_file.txt
+-rw-rw-rw- 1 osc  osc       0 أغس 21 22:50 public_file.txt
+$ exit                     
+# exit
+$ pwd
+/home/reda
+$ sudo su - reda
+[sudo] password for osc: 
+reda@reda-VirtualBox:~$ sleep 1000&
+[1] 5844
+reda@reda-VirtualBox:~$ kill 5844
+reda@reda-VirtualBox:~$ vim
+Command 'vim' not found, but can be installed with:
+sudo apt install vim         # version 2:8.2.3995-1ubuntu2.11, or
+sudo apt install vim-tiny    # version 2:8.2.3995-1ubuntu2.11
+sudo apt install neovim      # version 0.6.1-3
+sudo apt install vim-athena  # version 2:8.2.3995-1ubuntu2.11
+sudo apt install vim-gtk3    # version 2:8.2.3995-1ubuntu2.11
+sudo apt install vim-nox     # version 2:8.2.3995-1ubuntu2.11
+[1]+  Terminated              sleep 1000
+reda@reda-VirtualBox:~$ sudo apt install vim
+[sudo] password for reda: 
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  vim-common vim-runtime vim-tiny
+Suggested packages:
+  ctags vim-doc vim-scripts indent
+The following NEW packages will be installed:
+  vim vim-runtime
+The following packages will be upgraded:
+  vim-common vim-tiny
+2 upgraded, 2 newly installed, 0 to remove and 191 not upgraded.
+Need to get 9,350 kB of archives.
+After this operation, 37.6 MB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Get:1 http://eg.archive.ubuntu.com/ubuntu jammy-updates/main amd64 vim-tiny amd64 2:8.2.3995-1ubuntu2.11 [708 kB]
+Get:2 http://eg.archive.ubuntu.com/ubuntu jammy-updates/main amd64 vim-common all 2:8.2.3995-1ubuntu2.11 [81.5 kB]
+Get:3 http://eg.archive.ubuntu.com/ubuntu jammy-updates/main amd64 vim-runtime all 2:8.2.3995-1ubuntu2.11 [6,828 kB]
+Ign:3 http://eg.archive.ubuntu.com/ubuntu jammy-updates/main amd64 vim-runtime all 2:8.2.3995-1ubuntu2.11                                                                                                 
+Ign:4 http://eg.archive.ubuntu.com/ubuntu jammy-updates/main amd64 vim amd64 2:8.2.3995-1ubuntu2.11
+Ign:3 http://eg.archive.ubuntu.com/ubuntu jammy-updates/main amd64 vim-runtime all 2:8.2.3995-1ubuntu2.11
+Ign:4 http://eg.archive.ubuntu.com/ubuntu jammy-updates/main amd64 vim amd64 2:8.2.3995-1ubuntu2.11
+Ign:3 http://eg.archive.ubuntu.com/ubuntu jammy-updates/main amd64 vim-runtime all 2:8.2.3995-1ubuntu2.11
+Ign:4 http://security.ubuntu.com/ubuntu jammy-updates/main amd64 vim amd64 2:8.2.3995-1ubuntu2.11
+Ign:3 http://security.ubuntu.com/ubuntu jammy-updates/main amd64 vim-runtime all 2:8.2.3995-1ubuntu2.11
+Ign:4 http://security.ubuntu.com/ubuntu jammy-updates/main amd64 vim amd64 2:8.2.3995-1ubuntu2.11
+Ign:3 http://security.ubuntu.com/ubuntu jammy-updates/main amd64 vim-runtime all 2:8.2.3995-1ubuntu2.11
+Err:4 http://security.ubuntu.com/ubuntu jammy-updates/main amd64 vim amd64 2:8.2.3995-1ubuntu2.11                                                                                                         
+  Could not connect to eg.archive.ubuntu.com:80 (91.189.91.81). - connect (101: Network is unreachable) Cannot initiate the connection to eg.archive.ubuntu.com:80 (2620:2d:4002:1::101). - connect (101: Network is unreachable) Could not connect to eg.archive.ubuntu.com:80 (185.125.190.39). - connect (101: Network is unreachable) Cannot initiate the connection to eg.archive.ubuntu.com:80 (2620:2d:4000:1::16). - connect (101: Network is unreachable) Could not connect to eg.archive.ubuntu.com:80 (91.189.91.82). - connect (101: Network is unreachable) Cannot initiate the connection to eg.archive.ubuntu.com:80 (2620:2d:4002:1::102). - connect (101: Network is unreachable) Could not connect to eg.archive.ubuntu.com:80 (91.189.91.83). - connect (101: Network is unreachable) Cannot initiate the connection to eg.archive.ubuntu.com:80 (2001:67c:1562::18). - connect (101: Network is unreachable) Could not connect to eg.archive.ubuntu.com:80 (185.125.190.36). - connect (101: Network is unreachable) Cannot initiate the connection to eg.archive.ubuntu.com:80 (2001:67c:1562::15). - connect (101: Network is unreachable) Cannot initiate the connection to eg.archive.ubuntu.com:80 (2620:2d:4000:1::19). - connect (101: Network is unreachable) Cannot initiate the connection to eg.archive.ubuntu.com:80 (2620:2d:4002:1::103). - connect (101: Network is unreachable) [IP: 91.189.91.81 80]
+Ign:3 http://security.ubuntu.com/ubuntu jammy-updates/main amd64 vim-runtime all 2:8.2.3995-1ubuntu2.11                                                                                                   
+Err:3 http://security.ubuntu.com/ubuntu jammy-updates/main amd64 vim-runtime all 2:8.2.3995-1ubuntu2.11                                                                                                   
+  Error reading from server - read (104: Connection reset by peer) [IP: 91.189.91.81 80]
+Fetched 790 kB in 39s (20.1 kB/s)                                                                                                                                                                         
+E: Failed to fetch http://security.ubuntu.com/ubuntu/pool/main/v/vim/vim-runtime_8.2.3995-1ubuntu2.11_all.deb  Error reading from server - read (104: Connection reset by peer) [IP: 91.189.91.81 80]
+E: Failed to fetch http://security.ubuntu.com/ubuntu/pool/main/v/vim/vim_8.2.3995-1ubuntu2.11_amd64.deb  Could not connect to eg.archive.ubuntu.com:80 (91.189.91.81). - connect (101: Network is unreachable) Cannot initiate the connection to eg.archive.ubuntu.com:80 (2620:2d:4002:1::101). - connect (101: Network is unreachable) Could not connect to eg.archive.ubuntu.com:80 (185.125.190.39). - connect (101: Network is unreachable) Cannot initiate the connection to eg.archive.ubuntu.com:80 (2620:2d:4000:1::16). - connect (101: Network is unreachable) Could not connect to eg.archive.ubuntu.com:80 (91.189.91.82). - connect (101: Network is unreachable) Cannot initiate the connection to eg.archive.ubuntu.com:80 (2620:2d:4002:1::102). - connect (101: Network is unreachable) Could not connect to eg.archive.ubuntu.com:80 (91.189.91.83). - connect (101: Network is unreachable) Cannot initiate the connection to eg.archive.ubuntu.com:80 (2001:67c:1562::18). - connect (101: Network is unreachable) Could not connect to eg.archive.ubuntu.com:80 (185.125.190.36). - connect (101: Network is unreachable) Cannot initiate the connection to eg.archive.ubuntu.com:80 (2001:67c:1562::15). - connect (101: Network is unreachable) Cannot initiate the connection to eg.archive.ubuntu.com:80 (2620:2d:4000:1::19). - connect (101: Network is unreachable) Cannot initiate the connection to eg.archive.ubuntu.com:80 (2620:2d:4002:1::103). - connect (101: Network is unreachable) [IP: 91.189.91.81 80]
+E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?
+reda@reda-VirtualBox:~$ sleep 1000
+  
+
+    
+&
+
+
+
+
+
+
+
+  
+
+^Z
+[1]+  Stopped                 sleep 1000
+reda@reda-VirtualBox:~$ 
+reda@reda-VirtualBox:~$ 
+reda@reda-VirtualBox:~$ 
+reda@reda-VirtualBox:~$ 
+reda@reda-VirtualBox:~$ 
+reda@reda-VirtualBox:~$ sleep 1000&
+[2] 5933
+reda@reda-VirtualBox:~$ kill 5933
+reda@reda-VirtualBox:~$ vim
+Command 'vim' not found, but can be installed with:
+sudo apt install vim         # version 2:8.2.3995-1ubuntu2.11, or
+sudo apt install vim-tiny    # version 2:8.2.3995-1ubuntu2.11
+sudo apt install neovim      # version 0.6.1-3
+sudo apt install vim-athena  # version 2:8.2.3995-1ubuntu2.11
+sudo apt install vim-gtk3    # version 2:8.2.3995-1ubuntu2.11
+sudo apt install vim-nox     # version 2:8.2.3995-1ubuntu2.11
+[2]-  Terminated              sleep 1000
+reda@reda-VirtualBox:~$ vim
+Command 'vim' not found, but can be installed with:
+sudo apt install vim         # version 2:8.2.3995-1ubuntu2.11, or
+sudo apt install vim-tiny    # version 2:8.2.3995-1ubuntu2.11
+sudo apt install neovim      # version 0.6.1-3
+sudo apt install vim-athena  # version 2:8.2.3995-1ubuntu2.11
+sudo apt install vim-gtk3    # version 2:8.2.3995-1ubuntu2.11
+sudo apt install vim-nox     # version 2:8.2.3995-1ubuntu2.11
+reda@reda-VirtualBox:~$ sudo apt install vim
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  vim-common vim-runtime vim-tiny
+Suggested packages:
+  ctags vim-doc vim-scripts indent
+The following NEW packages will be installed:
+  vim vim-runtime
+The following packages will be upgraded:
+  vim-common vim-tiny
+2 upgraded, 2 newly installed, 0 to remove and 191 not upgraded.
+Need to get 8,560 kB/9,350 kB of archives.
+After this operation, 37.6 MB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Get:1 http://eg.archive.ubuntu.com/ubuntu jammy-updates/main amd64 vim-runtime all 2:8.2.3995-1ubuntu2.11 [6,828 kB]
+Get:2 http://eg.archive.ubuntu.com/ubuntu jammy-updates/main amd64 vim amd64 2:8.2.3995-1ubuntu2.11 [1,733 kB]
+Fetched 2,589 kB in 4s (723 kB/s)
+(Reading database ... 205449 files and directories currently installed.)
+Preparing to unpack .../vim-tiny_2%3a8.2.3995-1ubuntu2.11_amd64.deb ...
+Unpacking vim-tiny (2:8.2.3995-1ubuntu2.11) over (2:8.2.3995-1ubuntu2.10) ...
+Preparing to unpack .../vim-common_2%3a8.2.3995-1ubuntu2.11_all.deb ...
+Unpacking vim-common (2:8.2.3995-1ubuntu2.11) over (2:8.2.3995-1ubuntu2.10) ...
+Selecting previously unselected package vim-runtime.
+Preparing to unpack .../vim-runtime_2%3a8.2.3995-1ubuntu2.11_all.deb ...
+Adding 'diversion of /usr/share/vim/vim82/doc/help.txt to /usr/share/vim/vim82/doc/help.txt.vim-tiny by vim-runtime'
+Adding 'diversion of /usr/share/vim/vim82/doc/tags to /usr/share/vim/vim82/doc/tags.vim-tiny by vim-runtime'
+Unpacking vim-runtime (2:8.2.3995-1ubuntu2.11) ...
+Selecting previously unselected package vim.
+Preparing to unpack .../vim_2%3a8.2.3995-1ubuntu2.11_amd64.deb ...
+Unpacking vim (2:8.2.3995-1ubuntu2.11) ...
+Setting up vim-common (2:8.2.3995-1ubuntu2.11) ...
+Setting up vim-runtime (2:8.2.3995-1ubuntu2.11) ...
+Setting up vim (2:8.2.3995-1ubuntu2.11) ...
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vim (vim) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vimdiff (vimdiff) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/rvim (rvim) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/rview (rview) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vi (vi) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/view (view) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/ex (ex) in auto mode
+Setting up vim-tiny (2:8.2.3995-1ubuntu2.11) ...
+Processing triggers for mailcap (3.70+nmu1ubuntu1) ...
+Processing triggers for desktop-file-utils (0.26-1ubuntu3) ...
+Processing triggers for hicolor-icon-theme (0.17-2) ...
+Processing triggers for gnome-menus (3.36.0-1ubuntu3) ...
+Processing triggers for man-db (2.10.2-1) ...
+reda@reda-VirtualBox:~$ 
+reda@reda-VirtualBox:~$ 
+reda@reda-VirtualBox:~$ 
+reda@reda-VirtualBox:~$ sleep 1000&
+[2] 6365
+reda@reda-VirtualBox:~$ kill 6365
+reda@reda-VirtualBox:~$ vim
+[2]   Terminated              sleep 1000
+
+[3]+  Stopped                 vim
+reda@reda-VirtualBox:~$ pkill vim
+reda@reda-VirtualBox:~$ p -a
+p: command not found
+reda@reda-VirtualBox:~$ ps -a
+    PID TTY          TIME CMD
+   1799 tty2     00:00:00 gnome-session-b
+   4836 pts/0    00:00:00 sudo
+   4838 pts/1    00:00:00 su
+   4839 pts/1    00:00:00 bash
+   4851 pts/1    00:00:00 su
+   4852 pts/1    00:00:00 bash
+   5362 pts/1    00:00:00 sudo
+   5364 pts/2    00:00:00 su
+   5365 pts/2    00:00:00 sh
+   5829 pts/2    00:00:00 sudo
+   5831 pts/3    00:00:00 su
+   5832 pts/3    00:00:00 bash
+   5931 pts/3    00:00:00 sleep
+   6455 pts/3    00:00:00 vim
+   6475 pts/3    00:00:00 ps
+reda@reda-VirtualBox:~$ sudo apt-get update
+Get:1 http://security.ubuntu.com/ubuntu jammy-security InRelease [110 kB]
+Hit:2 http://eg.archive.ubuntu.com/ubuntu jammy InRelease                                        
+Hit:3 https://dl.google.com/linux/chrome/deb stable InRelease                                    
+Get:4 http://eg.archive.ubuntu.com/ubuntu jammy-updates InRelease [119 kB]
+Get:5 http://security.ubuntu.com/ubuntu jammy-security/main amd64 DEP-11 Metadata [43.1 kB]
+Get:6 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 DEP-11 Metadata [40.1 kB]
+Get:7 http://eg.archive.ubuntu.com/ubuntu jammy-backports InRelease [109 kB]
+Fetched 421 kB in 2s (216 kB/s)
+Reading package lists... Done
+reda@reda-VirtualBox:~$ sudo apt-get install neofetch 
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  caca-utils chafa gsfonts imagemagick imagemagick-6-common imagemagick-6.q16 jp2a libchafa0 libde265-0 libfftw3-double3 libheif1 libilmbase25 libimlib2 libjxr-tools libjxr0 liblqr-1-0
+  libmagickcore-6.q16-6 libmagickcore-6.q16-6-extra libmagickwand-6.q16-6 libnetpbm10 libopenexr25 libsixel-bin libsixel1 netpbm toilet toilet-fonts w3m w3m-img
+Suggested packages:
+  imagemagick-doc autotrace curl enscript ffmpeg gimp gnuplot grads graphviz hp2xx html2ps libwmf-bin mplayer povray radiance texlive-base-bin transfig ufraw-batch libfftw3-bin libfftw3-dev inkscape
+  figlet cmigemo dict dict-wn dictd w3m-el xsel
+The following NEW packages will be installed:
+  caca-utils chafa gsfonts imagemagick imagemagick-6-common imagemagick-6.q16 jp2a libchafa0 libde265-0 libfftw3-double3 libheif1 libilmbase25 libimlib2 libjxr-tools libjxr0 liblqr-1-0
+  libmagickcore-6.q16-6 libmagickcore-6.q16-6-extra libmagickwand-6.q16-6 libnetpbm10 libopenexr25 libsixel-bin libsixel1 neofetch netpbm toilet toilet-fonts w3m w3m-img
+0 upgraded, 29 newly installed, 0 to remove and 191 not upgraded.
+Need to get 11.5 MB of archives.
+After this operation, 34.2 MB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Get:1 http://eg.archive.ubuntu.com/ubuntu jammy/main amd64 libfftw3-double3 amd64 3.3.8-2ubuntu8 [770 kB]
+Get:2 http://eg.archive.ubuntu.com/ubuntu jammy/universe amd64 libde265-0 amd64 1.0.8-1 [243 kB]
+Get:3 http://eg.archive.ubuntu.com/ubuntu jammy/universe amd64 libheif1 amd64 1.12.0-2build1 [196 kB]
+Get:4 http://eg.archive.ubuntu.com/ubuntu jammy/universe amd64 liblqr-1-0 amd64 0.4.2-2.1 [27.7 kB]
+Get:5 http://eg.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 imagemagick-6-common all 8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3 [63.6 kB]
+Get:6 http://eg.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 libmagickcore-6.q16-6 amd64 8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3 [1,788 kB]                                                         
+Get:7 http://eg.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 libmagickwand-6.q16-6 amd64 8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3 [328 kB]                                                           
+Get:8 http://eg.archive.ubuntu.com/ubuntu jammy/universe amd64 libimlib2 amd64 1.7.4-1build1 [195 kB]                                                                                                     
+Get:9 http://eg.archive.ubuntu.com/ubuntu jammy/universe amd64 caca-utils amd64 0.99.beta19-2.2ubuntu4 [57.1 kB]                                                                                          
+Get:10 http://eg.archive.ubuntu.com/ubuntu jammy/universe amd64 libchafa0 amd64 1.8.0-1 [88.3 kB]                                                                                                         
+Get:11 http://eg.archive.ubuntu.com/ubuntu jammy/universe amd64 chafa amd64 1.8.0-1 [38.6 kB]                                                                                                             
+Get:12 http://eg.archive.ubuntu.com/ubuntu jammy/universe amd64 gsfonts all 1:8.11+urwcyr1.0.7~pre44-4.5 [3,120 kB]                                                                                       
+Get:13 http://eg.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 imagemagick-6.q16 amd64 8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3 [224 kB]                                                              
+Get:14 http://eg.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 imagemagick amd64 8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3 [14.6 kB]                                                                   
+Get:15 http://eg.archive.ubuntu.com/ubuntu jammy/universe amd64 jp2a amd64 1.1.1-1 [28.9 kB]                                                                                                              
+Get:16 http://eg.archive.ubuntu.com/ubuntu jammy/universe amd64 libilmbase25 amd64 2.5.7-2 [175 kB]                                                                                                       
+Get:17 http://eg.archive.ubuntu.com/ubuntu jammy/universe amd64 libjxr0 amd64 1.2~git20170615.f752187-5 [174 kB]                                                                                          
+Get:18 http://eg.archive.ubuntu.com/ubuntu jammy/universe amd64 libjxr-tools amd64 1.2~git20170615.f752187-5 [16.0 kB]                                                                                    
+Get:19 http://eg.archive.ubuntu.com/ubuntu jammy/universe amd64 libopenexr25 amd64 2.5.7-1 [780 kB]                                                                                                       
+Get:20 http://eg.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 libmagickcore-6.q16-6-extra amd64 8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3 [70.1 kB]                                                   
+Get:21 http://eg.archive.ubuntu.com/ubuntu jammy/universe amd64 libnetpbm10 amd64 2:10.0-15.4 [59.1 kB]                                                                                                   
+Get:22 http://eg.archive.ubuntu.com/ubuntu jammy/universe amd64 neofetch all 7.1.0-3 [84.3 kB]                                                                                                            
+Get:23 http://eg.archive.ubuntu.com/ubuntu jammy/universe amd64 netpbm amd64 2:10.0-15.4 [1,007 kB]                                                                                                       
+Get:24 http://eg.archive.ubuntu.com/ubuntu jammy/universe amd64 toilet-fonts all 0.3-1.4 [714 kB]                                                                                                         
+Get:25 http://eg.archive.ubuntu.com/ubuntu jammy/universe amd64 toilet amd64 0.3-1.4 [12.7 kB]                                                                                                            
+Get:26 http://eg.archive.ubuntu.com/ubuntu jammy-updates/main amd64 w3m amd64 0.5.3+git20210102-6ubuntu0.1 [1,105 kB]                                                                                     
+Get:27 http://eg.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 w3m-img amd64 0.5.3+git20210102-6ubuntu0.1 [23.6 kB]                                                                              
+Get:28 http://eg.archive.ubuntu.com/ubuntu jammy/universe amd64 libsixel1 amd64 1.10.3-3 [111 kB]                                                                                                         
+Get:29 http://eg.archive.ubuntu.com/ubuntu jammy/universe amd64 libsixel-bin amd64 1.10.3-3 [18.5 kB]                                                                                                     
+Fetched 11.5 MB in 48s (239 kB/s)                                                                                                                                                                         
+Selecting previously unselected package libfftw3-double3:amd64.
+(Reading database ... 207390 files and directories currently installed.)
+Preparing to unpack .../00-libfftw3-double3_3.3.8-2ubuntu8_amd64.deb ...
+Unpacking libfftw3-double3:amd64 (3.3.8-2ubuntu8) ...
+Selecting previously unselected package libde265-0:amd64.
+Preparing to unpack .../01-libde265-0_1.0.8-1_amd64.deb ...
+Unpacking libde265-0:amd64 (1.0.8-1) ...
+Selecting previously unselected package libheif1:amd64.
+Preparing to unpack .../02-libheif1_1.12.0-2build1_amd64.deb ...
+Unpacking libheif1:amd64 (1.12.0-2build1) ...
+Selecting previously unselected package liblqr-1-0:amd64.
+Preparing to unpack .../03-liblqr-1-0_0.4.2-2.1_amd64.deb ...
+Unpacking liblqr-1-0:amd64 (0.4.2-2.1) ...
+Selecting previously unselected package imagemagick-6-common.
+Preparing to unpack .../04-imagemagick-6-common_8%3a6.9.11.60+dfsg-1.3ubuntu0.22.04.3_all.deb ...
+Unpacking imagemagick-6-common (8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3) ...
+Selecting previously unselected package libmagickcore-6.q16-6:amd64.
+Preparing to unpack .../05-libmagickcore-6.q16-6_8%3a6.9.11.60+dfsg-1.3ubuntu0.22.04.3_amd64.deb ...
+Unpacking libmagickcore-6.q16-6:amd64 (8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3) ...
+Selecting previously unselected package libmagickwand-6.q16-6:amd64.
+Preparing to unpack .../06-libmagickwand-6.q16-6_8%3a6.9.11.60+dfsg-1.3ubuntu0.22.04.3_amd64.deb ...
+Unpacking libmagickwand-6.q16-6:amd64 (8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3) ...
+Selecting previously unselected package libimlib2:amd64.
+Preparing to unpack .../07-libimlib2_1.7.4-1build1_amd64.deb ...
+Unpacking libimlib2:amd64 (1.7.4-1build1) ...
+Selecting previously unselected package caca-utils.
+Preparing to unpack .../08-caca-utils_0.99.beta19-2.2ubuntu4_amd64.deb ...
+Unpacking caca-utils (0.99.beta19-2.2ubuntu4) ...
+Selecting previously unselected package libchafa0:amd64.
+Preparing to unpack .../09-libchafa0_1.8.0-1_amd64.deb ...
+Unpacking libchafa0:amd64 (1.8.0-1) ...
+Selecting previously unselected package chafa.
+Preparing to unpack .../10-chafa_1.8.0-1_amd64.deb ...
+Unpacking chafa (1.8.0-1) ...
+Selecting previously unselected package gsfonts.
+Preparing to unpack .../11-gsfonts_1%3a8.11+urwcyr1.0.7~pre44-4.5_all.deb ...
+Unpacking gsfonts (1:8.11+urwcyr1.0.7~pre44-4.5) ...
+Selecting previously unselected package imagemagick-6.q16.
+Preparing to unpack .../12-imagemagick-6.q16_8%3a6.9.11.60+dfsg-1.3ubuntu0.22.04.3_amd64.deb ...
+Unpacking imagemagick-6.q16 (8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3) ...
+Selecting previously unselected package imagemagick.
+Preparing to unpack .../13-imagemagick_8%3a6.9.11.60+dfsg-1.3ubuntu0.22.04.3_amd64.deb ...
+Unpacking imagemagick (8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3) ...
+Selecting previously unselected package jp2a.
+Preparing to unpack .../14-jp2a_1.1.1-1_amd64.deb ...
+Unpacking jp2a (1.1.1-1) ...
+Selecting previously unselected package libilmbase25:amd64.
+Preparing to unpack .../15-libilmbase25_2.5.7-2_amd64.deb ...
+Unpacking libilmbase25:amd64 (2.5.7-2) ...
+Selecting previously unselected package libjxr0:amd64.
+Preparing to unpack .../16-libjxr0_1.2~git20170615.f752187-5_amd64.deb ...
+Unpacking libjxr0:amd64 (1.2~git20170615.f752187-5) ...
+Selecting previously unselected package libjxr-tools.
+Preparing to unpack .../17-libjxr-tools_1.2~git20170615.f752187-5_amd64.deb ...
+Unpacking libjxr-tools (1.2~git20170615.f752187-5) ...
+Selecting previously unselected package libopenexr25:amd64.
+Preparing to unpack .../18-libopenexr25_2.5.7-1_amd64.deb ...
+Unpacking libopenexr25:amd64 (2.5.7-1) ...
+Selecting previously unselected package libmagickcore-6.q16-6-extra:amd64.
+Preparing to unpack .../19-libmagickcore-6.q16-6-extra_8%3a6.9.11.60+dfsg-1.3ubuntu0.22.04.3_amd64.deb ...
+Unpacking libmagickcore-6.q16-6-extra:amd64 (8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3) ...
+Selecting previously unselected package libnetpbm10.
+Preparing to unpack .../20-libnetpbm10_2%3a10.0-15.4_amd64.deb ...
+Unpacking libnetpbm10 (2:10.0-15.4) ...
+Selecting previously unselected package neofetch.
+Preparing to unpack .../21-neofetch_7.1.0-3_all.deb ...
+Unpacking neofetch (7.1.0-3) ...
+Selecting previously unselected package netpbm.
+Preparing to unpack .../22-netpbm_2%3a10.0-15.4_amd64.deb ...
+Unpacking netpbm (2:10.0-15.4) ...
+Selecting previously unselected package toilet-fonts.
+Preparing to unpack .../23-toilet-fonts_0.3-1.4_all.deb ...
+Unpacking toilet-fonts (0.3-1.4) ...
+Selecting previously unselected package toilet.
+Preparing to unpack .../24-toilet_0.3-1.4_amd64.deb ...
+Unpacking toilet (0.3-1.4) ...
+Selecting previously unselected package w3m.
+Preparing to unpack .../25-w3m_0.5.3+git20210102-6ubuntu0.1_amd64.deb ...
+Unpacking w3m (0.5.3+git20210102-6ubuntu0.1) ...
+Selecting previously unselected package w3m-img.
+Preparing to unpack .../26-w3m-img_0.5.3+git20210102-6ubuntu0.1_amd64.deb ...
+Unpacking w3m-img (0.5.3+git20210102-6ubuntu0.1) ...
+Selecting previously unselected package libsixel1:amd64.
+Preparing to unpack .../27-libsixel1_1.10.3-3_amd64.deb ...
+Unpacking libsixel1:amd64 (1.10.3-3) ...
+Selecting previously unselected package libsixel-bin.
+Preparing to unpack .../28-libsixel-bin_1.10.3-3_amd64.deb ...
+Unpacking libsixel-bin (1.10.3-3) ...
+Setting up imagemagick-6-common (8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3) ...
+Setting up toilet-fonts (0.3-1.4) ...
+Setting up toilet (0.3-1.4) ...
+update-alternatives: using /usr/bin/figlet-toilet to provide /usr/bin/figlet (figlet) in auto mode
+Setting up libjxr0:amd64 (1.2~git20170615.f752187-5) ...
+Setting up jp2a (1.1.1-1) ...
+Setting up libilmbase25:amd64 (2.5.7-2) ...
+Setting up libnetpbm10 (2:10.0-15.4) ...
+Setting up neofetch (7.1.0-3) ...
+Setting up libchafa0:amd64 (1.8.0-1) ...
+Setting up libopenexr25:amd64 (2.5.7-1) ...
+Setting up w3m (0.5.3+git20210102-6ubuntu0.1) ...
+Setting up gsfonts (1:8.11+urwcyr1.0.7~pre44-4.5) ...
+Setting up libsixel1:amd64 (1.10.3-3) ...
+Setting up libimlib2:amd64 (1.7.4-1build1) ...
+Setting up netpbm (2:10.0-15.4) ...
+Setting up libfftw3-double3:amd64 (3.3.8-2ubuntu8) ...
+Setting up liblqr-1-0:amd64 (0.4.2-2.1) ...
+Setting up w3m-img (0.5.3+git20210102-6ubuntu0.1) ...
+Setting up libde265-0:amd64 (1.0.8-1) ...
+Setting up libjxr-tools (1.2~git20170615.f752187-5) ...
+Setting up caca-utils (0.99.beta19-2.2ubuntu4) ...
+Setting up libheif1:amd64 (1.12.0-2build1) ...
+Setting up libsixel-bin (1.10.3-3) ...
+Setting up libmagickcore-6.q16-6:amd64 (8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3) ...
+Setting up libmagickwand-6.q16-6:amd64 (8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3) ...
+Setting up libmagickcore-6.q16-6-extra:amd64 (8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3) ...
+Setting up chafa (1.8.0-1) ...
+Setting up imagemagick-6.q16 (8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3) ...
+update-alternatives: using /usr/bin/compare-im6.q16 to provide /usr/bin/compare (compare) in auto mode
+update-alternatives: using /usr/bin/compare-im6.q16 to provide /usr/bin/compare-im6 (compare-im6) in auto mode
+update-alternatives: using /usr/bin/animate-im6.q16 to provide /usr/bin/animate (animate) in auto mode
+update-alternatives: using /usr/bin/animate-im6.q16 to provide /usr/bin/animate-im6 (animate-im6) in auto mode
+update-alternatives: using /usr/bin/convert-im6.q16 to provide /usr/bin/convert (convert) in auto mode
+update-alternatives: using /usr/bin/convert-im6.q16 to provide /usr/bin/convert-im6 (convert-im6) in auto mode
+update-alternatives: using /usr/bin/composite-im6.q16 to provide /usr/bin/composite (composite) in auto mode
+update-alternatives: using /usr/bin/composite-im6.q16 to provide /usr/bin/composite-im6 (composite-im6) in auto mode
+update-alternatives: using /usr/bin/conjure-im6.q16 to provide /usr/bin/conjure (conjure) in auto mode
+update-alternatives: using /usr/bin/conjure-im6.q16 to provide /usr/bin/conjure-im6 (conjure-im6) in auto mode
+update-alternatives: using /usr/bin/import-im6.q16 to provide /usr/bin/import (import) in auto mode
+update-alternatives: using /usr/bin/import-im6.q16 to provide /usr/bin/import-im6 (import-im6) in auto mode
+update-alternatives: using /usr/bin/identify-im6.q16 to provide /usr/bin/identify (identify) in auto mode
+update-alternatives: using /usr/bin/identify-im6.q16 to provide /usr/bin/identify-im6 (identify-im6) in auto mode
+update-alternatives: using /usr/bin/stream-im6.q16 to provide /usr/bin/stream (stream) in auto mode
+update-alternatives: using /usr/bin/stream-im6.q16 to provide /usr/bin/stream-im6 (stream-im6) in auto mode
+update-alternatives: using /usr/bin/display-im6.q16 to provide /usr/bin/display (display) in auto mode
+update-alternatives: using /usr/bin/display-im6.q16 to provide /usr/bin/display-im6 (display-im6) in auto mode
+update-alternatives: using /usr/bin/montage-im6.q16 to provide /usr/bin/montage (montage) in auto mode
+update-alternatives: using /usr/bin/montage-im6.q16 to provide /usr/bin/montage-im6 (montage-im6) in auto mode
+update-alternatives: using /usr/bin/mogrify-im6.q16 to provide /usr/bin/mogrify (mogrify) in auto mode
+update-alternatives: using /usr/bin/mogrify-im6.q16 to provide /usr/bin/mogrify-im6 (mogrify-im6) in auto mode
+Setting up imagemagick (8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3) ...
+Processing triggers for fontconfig (2.13.1-4.2ubuntu5) ...
+Processing triggers for desktop-file-utils (0.26-1ubuntu3) ...
+Processing triggers for hicolor-icon-theme (0.17-2) ...
+Processing triggers for gnome-menus (3.36.0-1ubuntu3) ...
+Processing triggers for libc-bin (2.35-0ubuntu3.1) ...
+Processing triggers for man-db (2.10.2-1) ...
+Processing triggers for mailcap (3.70+nmu1ubuntu1) ...
+reda@reda-VirtualBox:~$ sudo apt-get remove neofetch
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  caca-utils chafa jp2a libchafa0 toilet toilet-fonts
+Use 'sudo apt autoremove' to remove them.
+The following packages will be REMOVED:
+  neofetch
+0 upgraded, 0 newly installed, 1 to remove and 191 not upgraded.
+After this operation, 359 kB disk space will be freed.
+Do you want to continue? [Y/n] Y
+(Reading database ... 208657 files and directories currently installed.)
+Removing neofetch (7.1.0-3) ...
+Processing triggers for man-db (2.10.2-1) ...
